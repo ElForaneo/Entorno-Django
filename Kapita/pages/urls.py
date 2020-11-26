@@ -1,8 +1,10 @@
 #pages/urls.py
 
 from django.urls import path
-from . import views
+from .views import *
 
 urlpatterns = [
-    path('', views.homePageView, name="home"),
+    path('', home.as_view(), name="home"),
+    path('Publicaciones/Add', Publicacionesadd.as_view(), name="pub_add"),
+    path('Publicaciones/<int:id>/', PublicacionesUpdate.as_view(), name="pub_update")
     ]

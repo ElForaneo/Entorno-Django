@@ -26,6 +26,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'about'%}">About</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about'%}">About</a>
+              </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -34,23 +37,15 @@
           </div>
     </nav>    
 
-<div>
-    <h3>
-        Publicaciones
-    </h3>
-    {% for pub in publicaciones%}
-    <ul>
-        <li>
-            <a href="{%url 'pub_update' pub.id%}">{{pub}}</a>
-        </li>
-    </ul>
-        {%endfor%}
 
-        <div>
-            <a class="btn btn-dark" href="{%url 'pub_add'%}">Agregar publicacion</a>
-        </div>
-</div>
-
+    <div class="Contenedor_Publicaciones">
+        <h4>Complete los campos para hacer una publicacion</h4>
+        <form method="POST">
+            {%csrf_token%}
+            {{form.as_ul}}
+            <button type="submit" class="btn btn-primary"> Guardar publicacion</button>
+        </form>
+    </div>
 
 
 
